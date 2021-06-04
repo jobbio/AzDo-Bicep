@@ -3,9 +3,9 @@ trigger:
 - main
 
 variables:
-  resourceGroupName: 'example'
-  location: 'westeurope'
-  azureSubscription: 'AzureConnection'
+  resourceGroupName: 'automation'
+  location: 'australiaeast'
+  azureSubscription: 'Pay-As-You-Go'
   resourcePrefix: 'bicep'
 
 pool:
