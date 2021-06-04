@@ -16,4 +16,16 @@ stages:
 - stage: Build
   jobs:
   - job: Build
-    steps:
+    steps:    - task: AzureCLI@2  
+      displayName: 'build bicep artifact' 
+      inputs: 
+        azureSubscription: $(azureSubscription) 
+        scriptType: 'pscore'  
+        scriptLocation: 'inlineScript'  
+        inlineScript: 'az bicep build --file main.bicep'  
+          - task: PublishBuildArtifacts@1 
+      displayName: 'Publish artifact in pipeline' 
+      inputs: 
+        PathtoPublish: '$(Build.SourcesDirectory)/main.json'  
+        ArtifactName: 'finishedTemplate'  
+        publishLocation: 'Container' 
