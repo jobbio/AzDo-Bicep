@@ -48,7 +48,7 @@ stages:
               scriptType: 'pscore'
               scriptLocation: 'inlineScript'
               inlineScript: |
-                az group create --name $(ResourceGroupName) --location $(location)
+                az group create --name $(ResourceGroupName)
                 az deployment group create  `
                 --template-file $(Build.SourcesDirectory)/201cdnwithwebappazuredeploy.bicep `
                 --parameters $(Build.SourcesDirectory)/201cdnwithwebappazuredeployparameters.json `
