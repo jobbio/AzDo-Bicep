@@ -53,4 +53,4 @@ stages:
                 --template-file $(Build.SourcesDirectory)/201cdnwithwebappazuredeploy.bicep `
                 --parameters $(Build.SourcesDirectory)/201cdnwithwebappazuredeployparameters.json `
                 --resource-group $(ResourceGroupName) `
-                --parameters location=$(resourceprefix)
+                --parameters location=$(location)
