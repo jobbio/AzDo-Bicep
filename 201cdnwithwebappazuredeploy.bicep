@@ -1,13 +1,13 @@
 @description('Location for all resources.')
 param location string = resourceGroup().location
 
-var endpointName = 'endpoint-${uniqueString(resourceGroup().id)}'
-var serverFarmName_var = 'ServerFarm1'
-var profileName_var = 'CdnProfile1'
+var endpointName = 'RFendpoint-${uniqueString(resourceGroup().id)}'
+var serverFarmName_var = 'RFServerFarm1'
+var profileName_var = 'RFCdnProfile1'
 var webAppName_var = 'web-${uniqueString(resourceGroup().id)}'
 
 resource serverFarmName 'Microsoft.Web/serverfarms@2019-08-01' = {
-  name: serverFarmName_var
+  name: serverFarmName_var 
   location: location
   tags: {
     displayName: serverFarmName_var
