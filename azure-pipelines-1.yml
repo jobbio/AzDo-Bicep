@@ -17,7 +17,6 @@ stages:
   jobs:
   - job: Build
     steps:
-        - task: AzureCLI@2  
       displayName: 'build bicep artifact' 
       inputs: 
         azureSubscription: $(azureSubscription) 
