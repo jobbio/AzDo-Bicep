@@ -4,9 +4,9 @@ trigger:
 - main
 
 variables:
-  resourceGroupName: 'example'
-  location: 'westeurope'
-  azureSubscription: 'AzureConnection'
+  resourceGroupName: 'automation'
+  location: 'australiaEast'
+  azureSubscription: 'Pay-As-You-Go'
   resourcePrefix: 'bicep'
 
 pool:
@@ -16,14 +16,15 @@ stages:
 - stage: Build
   jobs:
   - job: Build
-    steps:    - task: AzureCLI@2  
+    steps:
+        - task: AzureCLI@2  
       displayName: 'build bicep artifact' 
       inputs: 
         azureSubscription: $(azureSubscription) 
         scriptType: 'pscore'  
         scriptLocation: 'inlineScript'  
         inlineScript: 'az bicep build --file main.bicep'  
-          - task: PublishBuildArtifacts@1 
+           - task: PublishBuildArtifacts@1 
       displayName: 'Publish artifact in pipeline' 
       inputs: 
         PathtoPublish: '$(Build.SourcesDirectory)/main.json'  
@@ -39,7 +40,7 @@ stages:
         deploy:
           steps:
           - checkout: self
-          - task: AzureCLI@2
+                    - task: AzureCLI@2
             displayName: 'deploy bicep template'
             inputs:
               azureSubscription: $(azureSubscription) 
